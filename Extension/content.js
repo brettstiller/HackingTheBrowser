@@ -24,7 +24,8 @@ socket.on('news', function (data) {
 socket.on('heart', function (data) {
   console.log('received "news" event with data:',data);
   var beat = data.beat;
-  var beat_op = map(beat, 30, 120, 0, 1) //CAN BE FINE TUNED.
+  console.log('heart data: ', data)
+  var beat_op = map(beat, 5, 1000, 0, 1) //CAN BE FINE TUNED.
                     $("body").animate({
                         opacity: beat_op
                     })
