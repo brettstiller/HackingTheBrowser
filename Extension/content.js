@@ -25,11 +25,13 @@ socket.on('heart', function (data) {
   console.log('received "news" event with data:',data);
   var beat = data.beat;
   console.log('heart data: ', data)
+
   var beat_op = map(beat, 5, 1000, 0, 1) //CAN BE FINE TUNED.
                     $("body").animate({
                         opacity: beat_op
                     })
                     console.log("beat_op", beat_op);
+                    
   // send back an event named "my other event" to the socket server
   socket.emit('my other event', { my: 'beats' });
 });
