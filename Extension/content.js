@@ -21,16 +21,21 @@ socket.on('news', function (data) {
   // send back an event named "my other event" to the socket server
   socket.emit('my other event', { my: 'data' });
 });
+var messageCount = 0;
 socket.on('heart', function (data) {
+  messageCount = messageCount+1;
   console.log('received "news" event with data:',data);
   var beat = data.beat;
   console.log('heart data: ', data)
 
-  var beat_op = map(beat, 5, 1000, 0, 1) //CAN BE FINE TUNED.
+  //if (messageCount % 100 === 0) {
+  var beat_op = map(beat, 100, 900, 0, 1) //CAN BE FINE TUNED. //SLOW DOWN DONT READ EVERY MESSAGE
                     $("body").animate({
-                        opacity: beat_op
+                        opacity: beat_op,
+                        zoom: 1 + beat_op
                     })
                     console.log("beat_op", beat_op);
+  //}
                     
   // send back an event named "my other event" to the socket server
   socket.emit('my other event', { my: 'beats' });

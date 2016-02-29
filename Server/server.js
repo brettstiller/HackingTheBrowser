@@ -17,7 +17,7 @@ var serialport = require('serialport'),			// include the serialport library
 	SerialPort  = serialport.SerialPort,			// make a local instance of serial
 	portName = process.argv[2],								// get the port name from the command line
 	portConfig = {
-		baudRate: 9600,
+		baudRate: 115200,
 		// call myPort.on('data') when a newline is received:
 		parser: serialport.parsers.readline('\n')
 	};
