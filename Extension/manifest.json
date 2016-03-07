@@ -3,16 +3,30 @@
   "name": "BPM Browser",
   "version": "0.1",
   "permissions": [
-    "http://*/*", "https://*/*"
-    ],
+  "http://*/*", "https://*/*"
+  ],
+  "description": "Browse the internet to the beat of someone's heart.",
+
+  "icons": { 
+           "16": "icon16.png",
+           "48": "icon48.png",
+           "128": "icon128.png"
+           },
+
+  "browser_action": {
+    "default_title": "Browse to your Heart's Content",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+    },  
+
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+      "<all_urls>"
       ],
-      "js": ["socket.io-1.4.5.js","content.js", "jquery.js"]
+      "js": ["socket.io-1.4.5.js", "jquery.js","content.js"]
 
     }
 
-  ]
-}
+    ]
+  }
